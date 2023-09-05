@@ -11,12 +11,17 @@ const App = () => {
     let newList = [];
     const getItems = JSON.parse(localStorage.getItem("urlList"));
     if (getItems) {
+     if(urlList.length === 0 ){}
+     else{
       newList.push(...getItems);
-      newList.push(...urlList);
+      newList.unshift(urlList[urlList.length - 1]);
       localStorage.setItem("urlList", JSON.stringify(newList));
       console.log("newlist", newList);
+     }
+
     } else {
-      localStorage.setItem("urlList", JSON.stringify(urlList));
+      if(urlList.length === 0 ) {}
+      else localStorage.setItem("urlList", JSON.stringify(urlList));
     }
   }, [urlList]);
 
@@ -107,7 +112,7 @@ const App = () => {
             <p>{urlList.length === 0 ? "No save url yet!" : "Urls "}</p>
 
             <div className="text-left px-4">
-              {urlList?.sort().map((website, index) => {
+              {urlList?.map((website, index) => {
                 return (
                   <div
                     className=" my-2 px-2 flex justify-between shadow-md bg-[#e7e9ea]"
