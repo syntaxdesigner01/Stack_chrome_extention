@@ -12,6 +12,7 @@ const App = () => {
     const getItems = JSON.parse(localStorage.getItem("urlList"));
     if (getItems) {
      if(urlList.length === 0 ){}
+     
      else{
       newList.push(...getItems);
       newList.unshift(urlList[urlList.length - 1]);
