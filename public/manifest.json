@@ -2,12 +2,9 @@
     "manifest_version": 3,
     "name":"Stack Url",
     "author":"Akpan Joseph",
-    "description":"Save your favourite websites so you won't spend time thinking about where you found that your instresting vidoe , article or playlist",
+    "description":"Save your favourite websites url so you won't spend time thinking about where you found that your instresting vidoes , article or music",
     "version":"0.0.1",
-    "content_scripts":[
-        {
-            "matches":["<all_urls>"],
-            "js":["content.js"]
-        }
-    ]
+    "chrome_url_overrides":{
+        "newtab":"index.html"
+    }
 }
