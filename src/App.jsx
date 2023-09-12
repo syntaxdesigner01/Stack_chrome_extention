@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 const App = () => {
   const [urlList, setUrlList] = useState([]);
   const [websiteName, setWebsiteName] = useState("");
-  const [close, setClose] = useState(true);
-  const [storage, setStorage] = ([])
+  const [link, setLink] = useState('')
 
+
+  
 
   useEffect(() => {
     let newList = [];
@@ -33,9 +34,10 @@ const App = () => {
     } else {
       setUrlList([
         ...urlList,
-        { name: websiteName, url: window.location.href },
+        { name: websiteName, url: link },
       ]);
       setWebsiteName("");
+      setLink("");
     }
   };
 
@@ -44,29 +46,14 @@ const App = () => {
 
   return (
     <>
-      <div
-        className={`absolute z-10 top-4 right-4 flex justify-center  items-center text-center ${close ? "" : "hidden"
-          }`}
-      >
-        <button
-          className=" rounded-xl border px-2  shadow-xl py-2 bg-lime-600 text-white text-sm font-bold"
-          onClick={() => setClose(false)}
-        >
-          Stack 🔗
-        </button>
-      </div>
+     
 
       <div
-        className={`flex z-50 justify-center items-center mt-4 text-center bg-white absolute top-4  w-full ${close ? "hidden" : ""
+        className={`flex z-50 justify-center items-center mt-4 text-center bg-white absolute top-4  w-full ${close ? "" : ""
           }`}
       >
         <div className="shadow-lg md:w-1/2 w-full  rounded-md py-4">
-          {/* close button */}
-          <div className="flex justify-end px-4">
-            <button className="" onClick={() => setClose(true)}>
-              ❌
-            </button>
-          </div>
+        
 
           {/* website title */}
           <p className="font-bold">Stack url</p>
@@ -90,7 +77,7 @@ const App = () => {
             </div>
 
             {/*url */}
-            {/* <div className="w-full ">
+            <div className="w-full ">
               <input
                 type="text"
                 placeholder="Url link"
@@ -99,7 +86,7 @@ const App = () => {
                 onChange={(e) => setLink(e.target.value)}
                 required
               />
-            </div> */}
+            </div>
 
             <button
               className="bg-lime-600 px-4 rounded-sm text-white  font-bold w-[50%] py-1"
