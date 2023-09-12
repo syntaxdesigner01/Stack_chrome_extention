@@ -4,27 +4,37 @@ const App = () => {
   const [urlList, setUrlList] = useState([]);
   const [websiteName, setWebsiteName] = useState("");
   const [link, setLink] = useState('')
+  // const [store, setStore] = useState([])
 
 
+
+
+  // setStore(JSON.parse(localStorage.getItem("urlList")))
   
-
+  
   useEffect(() => {
     let newList = [];
     const getItems = JSON.parse(localStorage.getItem("urlList"));
     if (getItems) {
-     if(urlList.length === 0 ){}
-     
-     else{
-      newList.push(...getItems);
-      newList.unshift(urlList[urlList.length - 1]);
-      localStorage.setItem("urlList", JSON.stringify(newList));
-      console.log("newlist", newList);
-     }
+      if (urlList.length === 0) {}
+
+      else {
+        setStore([...getItems])
+        setStore(urlList[urlList.length - 1])
+        newList.push(...getItems);
+        newList.unshift(urlList[urlList.length - 1]);
+        // setStore(newList)
+        localStorage.setItem("urlList", JSON.stringify(newList));
+        console.log("newlist", newList);
+      }
 
     } else {
-      if(urlList.length === 0 ) {}
+      if (urlList.length === 0) { }
       else localStorage.setItem("urlList", JSON.stringify(urlList));
     }
+
+  
+
   }, [urlList]);
 
 
@@ -41,19 +51,19 @@ const App = () => {
     }
   };
 
-
+// console.log(store);
 
 
   return (
     <>
-     
+
 
       <div
         className={`flex z-50 justify-center items-center mt-4 text-center bg-white absolute top-4  w-full ${close ? "" : ""
           }`}
       >
         <div className="shadow-lg md:w-1/2 w-full  rounded-md py-4">
-        
+
 
           {/* website title */}
           <p className="font-bold">Stack url</p>
