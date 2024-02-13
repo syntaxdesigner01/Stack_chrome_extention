@@ -56,7 +56,7 @@ const App = () => {
         
 
           {/* website title */}
-          <p className="font-bold">Stack url</p>
+          <p className="font-bold">Stack url 👌</p>
 
           {/* image */}
           <div className="flex items-center w-full justify-center">
